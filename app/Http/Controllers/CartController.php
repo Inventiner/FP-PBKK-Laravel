@@ -26,9 +26,6 @@ class CartController extends Controller
         return response()->json(['message' => 'Item added to cart successfully']);
     }
 
-
-
-
     public function removeItem($cartItemId)
     {
         $cartItem = CartItem::findOrFail($cartItemId);

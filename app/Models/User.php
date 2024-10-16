@@ -65,7 +65,7 @@ class User extends Authenticatable
       
         $cart = $this->carts()->where('status', 'active')->first();
 
-       
+
         if (!$cart) {
             $cart = $this->carts()->create([
                 'status' => 'active',

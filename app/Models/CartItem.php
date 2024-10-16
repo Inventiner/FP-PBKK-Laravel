@@ -17,6 +17,8 @@ class CartItem extends Model
         'subtotal',
     ];
 
+    protected $with = ['cart', 'product'];
+
     public function cart()
     {
         return $this->belongsTo(Cart::class);

@@ -84,7 +84,7 @@ class ProductFactory extends Factory
         $storageSuffixes = [" 128GB of SSD Storage,", " 256GB of SSD Storage,", " 512GB of SSD Storage,", " 1TB of SSD Storage,", " 64GB of SSD Storage,"];
         $ramSuffixes = [" 4GB of RAM,", " 6GB of RAM,", " 8GB of RAM,", " 12GB of RAM,", " 16GB of RAM,"];
         $battSuffixes = [" Up To 6 Hours of battery life,", " Up To 8 Hours of battery life,", " Up To 12 Hours of battery life,", " Up To 24 Hours of battery life,",];
-        $description = $productName . " with features of " . $storageSuffixes[array_rand($storageSuffixes)] . $ramSuffixes[array_rand($ramSuffixes) . $battSuffixes[array_rand($battSuffixes)]] . " and many more features!";
+        $description = $productName . " with features of " . $storageSuffixes[array_rand($storageSuffixes)] . $ramSuffixes[array_rand($ramSuffixes)] . $battSuffixes[array_rand($battSuffixes)] . " and many more features!";
         
         $imagePath = match ($randomChoice) {
             1, 2, 3, 4 ,5 ,6 ,7 , 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, => "storage/dummy_{$productCategory}.png",
