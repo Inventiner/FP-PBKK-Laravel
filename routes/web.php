@@ -3,7 +3,9 @@
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
 use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
@@ -11,11 +13,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard', ['products' => Product::where('user_id', Auth::id())->get()]);
+    return view('dashboard', ['products' => Product::where('user_id', Auth::id())->get(), 'categories' => Category::all()]);
 })->middleware(['auth'])->name('dashboard');
+Route::post('/dashboard', [ProductController::class, 'store'])->middleware(['auth'])->name('products.store');
+
 
 Route::get('/store', function () {
-    return view('store', ['products' => Product::all()]);
+    return view('store', ['products' => Product::where('user_id', '!=', Auth::id())->get()]);
 })->middleware(['auth'])->name('store');
 
 Route::get('/categories', function () {

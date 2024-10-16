@@ -15,10 +15,14 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'username',
+        'slug',
         'description',
         'price',
         'image_path',
+        'star_rating',
+        'count_rating',
+        'user_id',
+        'category_id',
     ];
 
     protected $with = ['user', 'category'];
